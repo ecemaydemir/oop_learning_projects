@@ -135,4 +135,75 @@ classDiagram
     Filo "1" o-- "*" Vehicle : Aggregation (Fleet has Vehicles)
     Vehicle <|-- Car : Inheritance
     Vehicle <|-- Motorcycle : Inheritance
-mermaid
+```
+
+## Food Delivery System
+**Folder:** `03_Food_Delivery_System`
+* **Focus:** Interfaces, Custom Exceptions, Collections (HashMap), Polymorphism.
+* **Description:** An ordering system connecting customers and products using interfaces. It features custom exception handling for cart management and uses HashMaps for efficient product lookup.
+
+### UML Class Diagram
+
+```mermaid
+classDiagram
+    class Main {
+        +main(String[] args)
+    }
+
+    class Sellable {
+        <<interface>>
+        +getId(): String
+        +getName(): String
+        +getPrice(): double
+    }
+
+    class Food {
+        -id: String
+        -name: String
+        -price: double
+        -restaurant: String
+        +Food(String id, String name, double price, String restaurant)
+        +toString(): String
+    }
+
+    class Drink {
+        -id: String
+        -name: String
+        -price: double
+        -size: String
+        +Drink(String id, String name, double price, String size)
+        +toString(): String
+    }
+
+    class FoodDeliveryPlatform {
+        -products: HashMapString_Sellable
+        +FoodDeliveryPlatform()
+        +addProduct(Sellable product): void
+        +getProduct(String id): Sellable
+        +listProducts(): void
+        +searchByPriceRange(double min, double max): void
+    }
+
+    class Customer {
+        -id: String
+        -name: String
+        -cart: ArrayList_Sellable
+        +Customer(String id, String name)
+        +addToCart(Sellable item): void
+        +removeFromCart(String itemId): void
+        +showCartDetails(): void
+        +Payment(): void
+    }
+
+    class ItemAlreadyinCartException {
+        +ItemAlreadyinCartException(String message)
+    }
+
+    %% Relationships
+    Sellable <|.. Food : Implements
+    Sellable <|.. Drink : Implements
+    Customer o-- Sellable : Aggregation (Cart contains Sellables)
+    FoodDeliveryPlatform o-- Sellable : Aggregation (Map contains Sellables)
+    Customer ..> ItemAlreadyinCartException : Throws
+    Main ..> FoodDeliveryPlatform : Uses
+    Main ..> Customer : Uses
