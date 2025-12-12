@@ -67,17 +67,15 @@ classDiagram
     Main ..> Company : Dependency
     Company "1" --> "*" Tour : Association
     Company "1" --> "*" Ticket : Association
+```
 
-# Vehicle Rental System
-
+## Vehicle Rental System
 **Folder:** `02_Vehicle_Rental_System`  
-**Focus:** Inheritance, Polymorphism, Abstraction, Encapsulation.
+* **Focus:** Inheritance, Polymorphism, Abstraction, Encapsulation.
+* **Description:** A simulation managing a fleet of cars and motorcycles using inheritance and polymorphism.
 
-## Description
-This project is a Java-based simulation of a **Vehicle Rental / Fleet Management System**. It demonstrates core **Object-Oriented Programming (OOP)** concepts such as Inheritance, Polymorphism, Abstraction, and Encapsulation.
 
-## UML Class Diagram
-
+### UML Class Diagram
 ```mermaid
 classDiagram
     class Filo {
@@ -120,3 +118,21 @@ classDiagram
         +generateUniqueIDBody(int serial): String
         +getTypeName(): String
         +getDoors: ing
+        +getTrunkLiters(): double
+    }
+
+    class Motorcycle {
+        -engineCC: int
+        -hasSidecar: boolean
+        +Motorcycle(String brand, String model, int year, int engineCC, boolean hasSidecar, int serial)
+        +generateUniqueIDBody(int serial): String
+        +getTypeName(): String
+        +getEngineCC(): int
+        +hasSidecar(): boolean
+    }
+
+    %% Relationships
+    Filo "1" o-- "*" Vehicle : Aggregation (Fleet has Vehicles)
+    Vehicle <|-- Car : Inheritance
+    Vehicle <|-- Motorcycle : Inheritance
+mermaid
