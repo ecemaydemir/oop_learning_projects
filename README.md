@@ -187,7 +187,7 @@ classDiagram
     class Customer {
         -id: String
         -name: String
-        -cart: ArrayList_Sellable
+        -cart: ArrayList<Sellable>
         +Customer(String id, String name)
         +addToCart(Sellable item): void
         +removeFromCart(String itemId): void
