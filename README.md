@@ -126,9 +126,9 @@ classDiagram
         -hasSidecar: boolean
         +Motorcycle(String brand, String model, int year, int engineCC, boolean hasSidecar, int serial)
         +generateUniqueIDBody(int serial): String
-        +getTypeName(): String
-        +getEngineCC(): int
-        +hasSidecar(): boolean
+        +getTypeName() String
+        +getEngineCC() int
+        +hasSidecar() boolean
     }
 
     %% Relationships
