@@ -3,7 +3,7 @@ My OOP learning journey. Demonstrates OOP concepts through code examples and cla
 
 ## Travel Agency System
 **Folder:** `01_Travel_Agency_System`
-* **Focus:** Aggregation, Dependency, Association relationships.
+* **Focus:** Association, Dependency, Aggregation relationships.
 * **Description:** A system managing tours, tickets, and staff using separate classes.
 
 ### UML Class Diagram
