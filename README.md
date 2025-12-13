@@ -14,52 +14,52 @@ classDiagram
     }
 
     class Company {
-        -companyName: String 
-        -tours: Tour[] 
-        -tickets: Ticket[] 
-        -staff: Staff[]
+        -companyName : String 
+        -tours : Tour[] 
+        -tickets : Ticket[] 
+        -staff : Staff[]
         +Company(String, tourCount: int, ticketCount: int, staffCount: int)
-        +addTour(tour: Tour): void
-        +addTicket(ticket: Ticket): void
-        +listTours(): void
-        +listTickets(): void
-        +searchTour(tourCity: String): void
-        +showCitiesWithToursAndFlightsAvailable(): void
-        +addStaff(staff: Staff): void
-        +averageStaffSalary(): double
-        +findOldestStaffAge(): int
+        +addTour(tour: Tour) void
+        +addTicket(ticket: Ticket) void
+        +listTours() void
+        +listTickets() void
+        +searchTour(tourCity: String) void
+        +showCitiesWithToursAndFlightsAvailable() void
+        +addStaff(staff: Staff) void
+        +averageStaffSalary() double
+        +findOldestStaffAge() int
     }
 
     class Tour {
-        -tourName: String 
-        -city: String
-        -price: double
+        -tourName : String 
+        -city : String
+        -price : double
         +Tour(String, String, double)
-        +getTourName(): String
-        +getCity(): String
-        +getPrice(): double
+        +getTourName() String
+        +getCity() String
+        +getPrice() double
     }
 
     class Ticket {
-        -departure: String
-        -arrival: String 
-        -airlineCompany: String
-        -price: double
+        -departure : String
+        -arrival : String 
+        -airlineCompany : String
+        -price : double
         +Ticket(String, String, String, double)
-        +getDeparture(): String
-        +getArrival(): String
-        +getAirlineCompany(): String
-        +getPrice(): double
+        +getDeparture() String
+        +getArrival() String
+        +getAirlineCompany() String
+        +getPrice() double
     }
 
     class Staff {
-        -name: String 
-        -age: int
-        -salary: double
+        -name : String 
+        -age : int
+        -salary : double
         +Staff(String, int, double)
-        +getName(): String
-        +getAge(): int
-        +getSalary(): double
+        +getName() : String
+        +getAge() : int
+        +getSalary() : double
     }
 
     %% Relationships
@@ -79,53 +79,53 @@ classDiagram
 ```mermaid
 classDiagram
     class Filo {
-        -vehicles: Vehicle[]
-        -vehicleCount: int
-        -serialCounter: int
-        +Filo(int capacity): void
-        +addVehicle(Vehicle v): void
-        +createCar(String brand, String model, int year, int doors, double trunkLiters): Car
-        +createMotorcycle(String brand, String model, int year, int engineCC, boolean hasSidecar): Motorcycle
-        +printAllVehicles(): void
-        +printAvailable(): void
-        +printAvailableByType(String typeName): void
-        +findByID(String ID): Vehicle
-        +rentByID(String ID): boolean
-        +returnByID(String ID): boolean
+        -vehicles : Vehicle[]
+        -vehicleCount : int
+        -serialCounter : int
+        +Filo(int capacity)
+        +addVehicle(Vehicle v) void
+        +createCar(String brand, String model, int year, int doors, double trunkLiters) Car
+        +createMotorcycle(String brand, String model, int year, int engineCC, boolean hasSidecar) Motorcycle
+        +printAllVehicles() void
+        +printAvailable() void
+        +printAvailableByType(String typeName) void
+        +findByID(String ID) Vehicle
+        +rentByID(String ID) boolean
+        +returnByID(String ID) boolean
     }
 
     class Vehicle {
         <<abstract>>
-        #brand: String
-        #model: String 
-        #year: int
-        #uniqueID: String 
-        #rented: boolean 
+        #brand : String
+        #model : String 
+        #year : int
+        #uniqueID : String 
+        #rented : boolean 
         +Vehicle(String brand, String model, int year)
-        +generateUniqueIDBody(int serial): String
-        +getUniqueID(): String
-        +isAvailable(): boolean
-        +rent(): void
-        +giveBack(): void
-        +getTypeName(): String
-        +toString(): String
+        +generateUniqueIDBody(int serial) String
+        +getUniqueID() String
+        +isAvailable() boolean
+        +rent() void
+        +giveBack() void
+        +getTypeName() String
+        +toString() String
     }
 
     class Car {
-        -doors: int
-        -trunkLiters: double
+        -doors : int
+        -trunkLiters : double
         +Car(String brand, String model, int year, int doors, double trunkLiters, int serial)
-        +generateUniqueIDBody(int serial): String
-        +getTypeName(): String
-        +getDoors: ing
-        +getTrunkLiters(): double
+        +generateUniqueIDBody(int serial) String
+        +getTypeName() String
+        +getDoors int
+        +getTrunkLiters() double
     }
 
     class Motorcycle {
-        -engineCC: int
-        -hasSidecar: boolean
+        -engineCC : int
+        -hasSidecar : boolean
         +Motorcycle(String brand, String model, int year, int engineCC, boolean hasSidecar, int serial)
-        +generateUniqueIDBody(int serial): String
+        +generateUniqueIDBody(int serial) String
         +getTypeName() String
         +getEngineCC() int
         +hasSidecar() boolean
@@ -152,47 +152,47 @@ classDiagram
 
     class Sellable {
         <<interface>>
-        +getId(): String
-        +getName(): String
-        +getPrice(): double
+        +getId() String
+        +getName() String
+        +getPrice() double
     }
 
     class Food {
-        -id: String
-        -name: String
-        -price: double
-        -restaurant: String
+        -id : String
+        -name : String
+        -price : double
+        -restaurant : String
         +Food(String id, String name, double price, String restaurant)
-        +toString(): String
+        +toString() String
     }
 
     class Drink {
-        -id: String
-        -name: String
-        -price: double
-        -size: String
+        -id : String
+        -name : String
+        -price : double
+        -size : String
         +Drink(String id, String name, double price, String size)
-        +toString(): String
+        +toString() String
     }
 
     class FoodDeliveryPlatform {
-        -products: HashMapString_Sellable
+        -products : HashMapString_Sellable
         +FoodDeliveryPlatform()
-        +addProduct(Sellable product): void
-        +getProduct(String id): Sellable
-        +listProducts(): void
-        +searchByPriceRange(double min, double max): void
+        +addProduct(Sellable product) void
+        +getProduct(String id) Sellable
+        +listProducts() void
+        +searchByPriceRange(double min, double max) void
     }
 
     class Customer {
-        -id: String
-        -name: String
-        -cart: ArrayList<Sellable>
+        -id : String
+        -name : String
+        -cart : ArrayList<Sellable>
         +Customer(String id, String name)
-        +addToCart(Sellable item): void
-        +removeFromCart(String itemId): void
-        +showCartDetails(): void
-        +Payment(): void
+        +addToCart(Sellable item) void
+        +removeFromCart(String itemId) void
+        +showCartDetails() void
+        +Payment() void
     }
 
     class ItemAlreadyinCartException {
